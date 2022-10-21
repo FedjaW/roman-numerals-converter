@@ -6,7 +6,7 @@ public class RomanianConverter
     {
         if (numberToConvert < 0)
         {
-            throw new Exception();
+            throw new ArgumentOutOfRangeException("Negative integers are not convertible");
         }
 
         if (numberToConvert == 0)
@@ -36,8 +36,6 @@ public class RomanianConverter
             tausender = int.Parse(number[length - 4].ToString()) * 1000;
         }
 
-        int i = (int)(numberToConvert);
-
         Dictionary<int, string> m = new Dictionary<int, string>();
         m.Add(1, "I");
         m.Add(5, "V");
@@ -47,7 +45,7 @@ public class RomanianConverter
         m.Add(500, "D");
         m.Add(1000, "M");
 
-        if (m.TryGetValue(i, out string value))
+        if (m.TryGetValue(numberToConvert, out string value))
         {
             return value;
         }
@@ -63,7 +61,7 @@ public class RomanianConverter
         }
         else if (tausender >= 4000)
         {
-            throw new Exception("max number of 3999 supported");
+            throw new ArgumentOutOfRangeException("Integer greater than 3999 are not supported.");
         }
 
         if (hunderter < 400)

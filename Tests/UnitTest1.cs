@@ -51,7 +51,7 @@ public class Tests
         // Arrange (See TestCase Attribute)
 
         // Act & Assert
-        Assert.Throws<Exception>(() => RomanianConverter.Convert(numberToConvert));
+        Assert.Throws<ArgumentOutOfRangeException>(() => RomanianConverter.Convert(numberToConvert));
     }
 
     [TestCase(0)]
@@ -75,6 +75,6 @@ public class Tests
         // Arrange (See TestCase Attribute)
 
         // Act & Assert
-        Assert.Throws<Exception>(() => RomanianConverter.Convert(numberToConvert));
+        Assert.Throws<ArgumentOutOfRangeException>(() => RomanianConverter.Convert(numberToConvert));
     }
 }
