@@ -1,3 +1,3 @@
-﻿int integer = 480;
-var romanianNumber = RomanianConverter.Convert(integer);
-Console.WriteLine(integer + " = " + romanianNumber);
+﻿int integer = 000;
+var romanNumber = RomanianConverter.Convert(integer);
+Console.WriteLine(integer + " = " + romanNumber);

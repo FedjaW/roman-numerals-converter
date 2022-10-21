@@ -4,13 +4,20 @@ public class RomanianConverter
 {
     public static string Convert(int numberToConvert)
     {
-        // remove leading zeros
-        // todo: 0000 as input will return empty string which is problematic
+        if (numberToConvert < 0)
+        {
+            throw new Exception();
+        }
+
+        if (numberToConvert == 0)
+        {
+            return "PASSIERSCHEIN A-XXXVIII";
+        }
+
         string number = numberToConvert.ToString().TrimStart('0');
         int length = number.Length;
 
         int einer = int.Parse(number[length - 1].ToString());
-        Console.WriteLine("einer: " + einer);
 
         int zehner = -1;
         int hunderter = -1;
@@ -19,12 +26,10 @@ public class RomanianConverter
         if (length >= 2)
         {
             zehner = int.Parse(number[length - 2].ToString()) * 10;
-            Console.WriteLine("zehner: " + zehner);
         }
         if (length >= 3)
         {
             hunderter = int.Parse(number[length - 3].ToString()) * 100;
-            Console.WriteLine("hunderter: " + hunderter);
         }
         if (length >= 4)
         {

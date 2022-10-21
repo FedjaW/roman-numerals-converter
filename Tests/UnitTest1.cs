@@ -33,20 +33,20 @@ public class Tests
     [TestCase(2678, ExpectedResult = "MMDCLXXVIII")]
     [TestCase(3900, ExpectedResult = "MMMCM")]
     [TestCase(3999, ExpectedResult = "MMMCMXCIX")]
-    public string Convert(int numberToConvert)
+    public string Convert_Integer_ReturnsRoman(int numberToConvert)
     {
         // Arrange (See TestCase Attribute)
 
         // Act
-        var romanianNumber = RomanianConverter.Convert(numberToConvert);
+        var romanNumber = RomanianConverter.Convert(numberToConvert);
 
         // Assert
-        return romanianNumber;
+        return romanNumber;
     }
 
     [TestCase(4000)]
     [TestCase(99999)]
-    public void Convert_NumberBiggerThan3999_ThrowsException(int numberToConvert)
+    public void Convert_GreaterThan3999_ThrowsException(int numberToConvert)
     {
         // Arrange (See TestCase Attribute)
 
@@ -54,19 +54,23 @@ public class Tests
         Assert.Throws<Exception>(() => RomanianConverter.Convert(numberToConvert));
     }
 
-    //[Test]
-    public void Convert_NumberEqualsZero_ThrowsException()
+    [TestCase(0)]
+    [TestCase(000)]
+    public void Convert_Zero_ReturnPassiertscheinA28(int numberToConvert)
     {
-        // Arrange
-        int numberToConvert = 0;
+        // Arrange (See TestCase Attribute)
 
-        // Act & Assert
-        Assert.Throws<Exception>(() => RomanianConverter.Convert(numberToConvert));
+        // Act
+        var romanNumber = RomanianConverter.Convert(numberToConvert);
+
+        // Assert
+        Assert.AreEqual("PASSIERSCHEIN A-XXXVIII", romanNumber);
     }
 
-    //[TestCase(-1)]
-    //[TestCase(-9999)]
-    public void Convert_NumberLowerThanZero_ThrowsException(int numberToConvert)
+    [TestCase(-1)]
+    [TestCase(-480)]
+    [TestCase(-9999)]
+    public void Convert_NegativeNumber_ThrowsException(int numberToConvert)
     {
         // Arrange (See TestCase Attribute)
 
