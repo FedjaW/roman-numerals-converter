@@ -1,6 +1,22 @@
 # roman-numerals-converter
-A Roman Numerals Converter to convert any integer number between 1 and 3999 to roman numerals.
 
-I used the following wiki article, to get to know more about roman numerals: https://de.wikipedia.org/wiki/R%C3%B6mische_Zahlschrift#Subtraktionsregel
+A roman number converter that converts any integer between 1 and 3999 into a roman string.
 
-To get some sample data to test with, I used this source: https://www.math-salamanders.com/roman-numerals-list.html
+The converter returns roman numerals in `subtractive notation`. Learn more about the ancient Rome numeral system: https://de.wikipedia.org/wiki/R%C3%B6mische_Zahlschrift#Subtraktionsregel
+
+To get some sample data for testing, I used this source: https://www.math-salamanders.com/roman-numerals-list.html
+
+##### How wo use the software:
+
+- You need `.NET 6.0` to run the console application. (https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+- Navigate to the _Sources_ folder, specify an input integer in `Program.cs` and execute `dotnet run`. Your number will be converted and printed to the console.
+- Navigate to the _Tests_ folder and execute `dotnet test` to run the test suite.
+
+##### To Do:
+
+- The implementation can be improved by using recursion.
+- A method to convert from roman numerals to integer is missing
+
+##### Hints:
+
+- An Easter egg is hidden
