@@ -1,3 +1,3 @@
 ﻿int integer = 000;
-var romanNumber = RomanianConverter.Convert(integer);
+var romanNumber = Converter.ConvertToRoman(integer);
 Console.WriteLine(integer + " = " + romanNumber);

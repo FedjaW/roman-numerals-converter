@@ -1,8 +1,8 @@
 using System.Text;
 
-public class RomanianConverter
+public class Converter
 {
-    public static string Convert(int numberToConvert)
+    public static string ConvertToRoman(int numberToConvert)
     {
         if (numberToConvert < 0)
         {
@@ -12,28 +12,6 @@ public class RomanianConverter
         if (numberToConvert == 0)
         {
             return "PASSIERSCHEIN A-XXXVIII";
-        }
-
-        string number = numberToConvert.ToString().TrimStart('0');
-        int length = number.Length;
-
-        int einer = int.Parse(number[length - 1].ToString());
-
-        int zehner = -1;
-        int hunderter = -1;
-        int tausender = -1;
-
-        if (length >= 2)
-        {
-            zehner = int.Parse(number[length - 2].ToString()) * 10;
-        }
-        if (length >= 3)
-        {
-            hunderter = int.Parse(number[length - 3].ToString()) * 100;
-        }
-        if (length >= 4)
-        {
-            tausender = int.Parse(number[length - 4].ToString()) * 1000;
         }
 
         Dictionary<int, string> m = new Dictionary<int, string>();
@@ -50,69 +28,84 @@ public class RomanianConverter
             return value;
         }
 
+        string number = numberToConvert.ToString().TrimStart('0');
+        int length = number.Length;
+
         var s = new StringBuilder();
 
-        if (tausender < 4000)
+        if (length >= 4)
         {
-            for (int k = 0; k < tausender / 1000; k++)
+            int tausender = int.Parse(number[length - 4].ToString()) * 1000;
+            if (tausender < 4000)
             {
-                s.Append("M");
+                for (int k = 0; k < tausender / 1000; k++)
+                {
+                    s.Append("M");
+                }
             }
-        }
-        else if (tausender >= 4000)
-        {
-            throw new ArgumentOutOfRangeException("Integer greater than 3999 are not supported.");
-        }
-
-        if (hunderter < 400)
-        {
-            for (int k = 0; k < hunderter / 100; k++)
+            else if (tausender >= 4000)
             {
-                s.Append("C");
-            }
-        }
-        else if (hunderter == 400)
-        {
-            s.Append("CD");
-        }
-        else if (hunderter == 900)
-        {
-            s.Append("CM");
-        }
-        else
-        {
-            s.Append("D");
-            for (int k = 0; k < (hunderter - 500) / 100; k++)
-            {
-                s.Append("C");
+                throw new ArgumentOutOfRangeException("Integer greater than 3999 are not supported.");
             }
         }
 
-
-        if (zehner < 40)
+        if (length >= 3)
         {
-            for (int k = 0; k < (zehner / 10); k++)
+            int hunderter = int.Parse(number[length - 3].ToString()) * 100;
+            if (hunderter < 400)
             {
-                s.Append("X");
+                for (int k = 0; k < hunderter / 100; k++)
+                {
+                    s.Append("C");
+                }
+            }
+            else if (hunderter == 400)
+            {
+                s.Append("CD");
+            }
+            else if (hunderter == 900)
+            {
+                s.Append("CM");
+            }
+            else
+            {
+                s.Append("D");
+                for (int k = 0; k < (hunderter - 500) / 100; k++)
+                {
+                    s.Append("C");
+                }
             }
         }
-        else if (zehner == 40)
+
+        if (length >= 2)
         {
-            s.Append("XL");
-        }
-        else if (zehner == 90)
-        {
-            s.Append("XC");
-        }
-        else
-        {
-            s.Append("L");
-            for (int k = 0; k < (zehner - 50) / 10; k++)
+            int zehner = int.Parse(number[length - 2].ToString()) * 10;
+            if (zehner < 40)
             {
-                s.Append("X");
+                for (int k = 0; k < (zehner / 10); k++)
+                {
+                    s.Append("X");
+                }
+            }
+            else if (zehner == 40)
+            {
+                s.Append("XL");
+            }
+            else if (zehner == 90)
+            {
+                s.Append("XC");
+            }
+            else
+            {
+                s.Append("L");
+                for (int k = 0; k < (zehner - 50) / 10; k++)
+                {
+                    s.Append("X");
+                }
             }
         }
 
+        int einer = int.Parse(number[length - 1].ToString());
         if (einer < 4)
         {
             for (int k = 0; k < einer; k++)

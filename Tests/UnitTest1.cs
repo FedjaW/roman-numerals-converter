@@ -33,12 +33,12 @@ public class Tests
     [TestCase(2678, ExpectedResult = "MMDCLXXVIII")]
     [TestCase(3900, ExpectedResult = "MMMCM")]
     [TestCase(3999, ExpectedResult = "MMMCMXCIX")]
-    public string Convert_Integer_ReturnsRoman(int numberToConvert)
+    public string ConvertToRoman_Integer_ReturnsRoman(int numberToConvertToRoman)
     {
         // Arrange (See TestCase Attribute)
 
         // Act
-        var romanNumber = RomanianConverter.Convert(numberToConvert);
+        var romanNumber = Converter.ConvertToRoman(numberToConvertToRoman);
 
         // Assert
         return romanNumber;
@@ -46,22 +46,22 @@ public class Tests
 
     [TestCase(4000)]
     [TestCase(99999)]
-    public void Convert_GreaterThan3999_ThrowsException(int numberToConvert)
+    public void ConvertToRoman_GreaterThan3999_ThrowsException(int number)
     {
         // Arrange (See TestCase Attribute)
 
         // Act & Assert
-        Assert.Throws<ArgumentOutOfRangeException>(() => RomanianConverter.Convert(numberToConvert));
+        Assert.Throws<ArgumentOutOfRangeException>(() => Converter.ConvertToRoman(number));
     }
 
     [TestCase(0)]
     [TestCase(000)]
-    public void Convert_Zero_ReturnPassiertscheinA28(int numberToConvert)
+    public void ConvertToRoman_Zero_ReturnPassiertscheinA28(int numberToConvertToRoman)
     {
         // Arrange (See TestCase Attribute)
 
         // Act
-        var romanNumber = RomanianConverter.Convert(numberToConvert);
+        var romanNumber = Converter.ConvertToRoman(numberToConvertToRoman);
 
         // Assert
         Assert.AreEqual("PASSIERSCHEIN A-XXXVIII", romanNumber);
@@ -70,11 +70,11 @@ public class Tests
     [TestCase(-1)]
     [TestCase(-480)]
     [TestCase(-9999)]
-    public void Convert_NegativeNumber_ThrowsException(int numberToConvert)
+    public void ConvertToRoman_NegativeNumber_ThrowsException(int numberToConvertToRoman)
     {
         // Arrange (See TestCase Attribute)
 
         // Act & Assert
-        Assert.Throws<ArgumentOutOfRangeException>(() => RomanianConverter.Convert(numberToConvert));
+        Assert.Throws<ArgumentOutOfRangeException>(() => Converter.ConvertToRoman(numberToConvertToRoman));
     }
 }
