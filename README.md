@@ -6,7 +6,7 @@ The converter returns roman numerals in `subtractive notation`. Learn more about
 
 To get some sample data for testing, I used this source: https://www.math-salamanders.com/roman-numerals-list.html
 
-##### How wo use the software:
+##### How to use the software:
 
 - You need `.NET 6.0` to run the console application. (https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 - Navigate to the _Sources_ folder, specify an input integer in `Program.cs` and execute `dotnet run`. Your number will be converted and printed to the console.
@@ -14,8 +14,8 @@ To get some sample data for testing, I used this source: https://www.math-salama
 
 ##### To Do:
 
-- The implementation can be improved by using recursion.
-- A method to convert from roman numerals to integer is missing
+- Improve the implementation by using recursion
+- Add a method to convert from roman numerals to integer
 
 ##### Hints:
 
