@@ -35,15 +35,15 @@ public class Converter
 
         if (length >= 4)
         {
-            int tausender = int.Parse(number[length - 4].ToString()) * 1000;
-            if (tausender < 4000)
+            int thousands = int.Parse(number[length - 4].ToString()) * 1000;
+            if (thousands < 4000)
             {
-                for (int k = 0; k < tausender / 1000; k++)
+                for (int k = 0; k < thousands / 1000; k++)
                 {
                     s.Append("M");
                 }
             }
-            else if (tausender >= 4000)
+            else if (thousands >= 4000)
             {
                 throw new ArgumentOutOfRangeException("Integer greater than 3999 are not supported.");
             }
@@ -51,26 +51,26 @@ public class Converter
 
         if (length >= 3)
         {
-            int hunderter = int.Parse(number[length - 3].ToString()) * 100;
-            if (hunderter < 400)
+            int hundreds = int.Parse(number[length - 3].ToString()) * 100;
+            if (hundreds < 400)
             {
-                for (int k = 0; k < hunderter / 100; k++)
+                for (int k = 0; k < hundreds / 100; k++)
                 {
                     s.Append("C");
                 }
             }
-            else if (hunderter == 400)
+            else if (hundreds == 400)
             {
                 s.Append("CD");
             }
-            else if (hunderter == 900)
+            else if (hundreds == 900)
             {
                 s.Append("CM");
             }
             else
             {
                 s.Append("D");
-                for (int k = 0; k < (hunderter - 500) / 100; k++)
+                for (int k = 0; k < (hundreds - 500) / 100; k++)
                 {
                     s.Append("C");
                 }
@@ -79,52 +79,52 @@ public class Converter
 
         if (length >= 2)
         {
-            int zehner = int.Parse(number[length - 2].ToString()) * 10;
-            if (zehner < 40)
+            int tens = int.Parse(number[length - 2].ToString()) * 10;
+            if (tens < 40)
             {
-                for (int k = 0; k < (zehner / 10); k++)
+                for (int k = 0; k < (tens / 10); k++)
                 {
                     s.Append("X");
                 }
             }
-            else if (zehner == 40)
+            else if (tens == 40)
             {
                 s.Append("XL");
             }
-            else if (zehner == 90)
+            else if (tens == 90)
             {
                 s.Append("XC");
             }
             else
             {
                 s.Append("L");
-                for (int k = 0; k < (zehner - 50) / 10; k++)
+                for (int k = 0; k < (tens - 50) / 10; k++)
                 {
                     s.Append("X");
                 }
             }
         }
 
-        int einer = int.Parse(number[length - 1].ToString());
-        if (einer < 4)
+        int units = int.Parse(number[length - 1].ToString());
+        if (units < 4)
         {
-            for (int k = 0; k < einer; k++)
+            for (int k = 0; k < units; k++)
             {
                 s.Append("I");
             }
         }
-        else if (einer == 4)
+        else if (units == 4)
         {
             s.Append("IV");
         }
-        else if (einer == 9)
+        else if (units == 9)
         {
             s.Append("IX");
         }
         else
         {
             s.Append("V");
-            for (int k = 0; k < einer - 5; k++)
+            for (int k = 0; k < units - 5; k++)
             {
                 s.Append("I");
             }
