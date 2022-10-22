@@ -9,7 +9,7 @@ To get some sample data for testing, I used this source: https://www.math-salama
 ##### How to use the software:
 
 - You need `.NET 6.0` to run the console application. (https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
-- Navigate to the _Sources_ folder, specify an input integer in `Program.cs` and execute `dotnet run`. Your number will be converted and printed to the console.
+- Navigate to the _Sources_ folder and execute `dotnet run`. You will be prompted to enter an interger between 1 and 3999.
 - Navigate to the _Tests_ folder and execute `dotnet test` to run the test suite.
 
 ##### To Do:
