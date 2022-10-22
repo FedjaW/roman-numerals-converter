@@ -11,6 +11,8 @@ public class Tests
     [TestCase(9, ExpectedResult = "IX")]
     [TestCase(10, ExpectedResult = "X")]
     [TestCase(23, ExpectedResult = "XXIII")]
+    [TestCase(30, ExpectedResult = "XXX")]
+    [TestCase(40, ExpectedResult = "XL")]
     [TestCase(43, ExpectedResult = "XLIII")]
     [TestCase(49, ExpectedResult = "XLIX")]
     [TestCase(000049, ExpectedResult = "XLIX")]
@@ -20,6 +22,7 @@ public class Tests
     [TestCase(100, ExpectedResult = "C")]
     [TestCase(120, ExpectedResult = "CXX")]
     [TestCase(123, ExpectedResult = "CXXIII")]
+    [TestCase(300, ExpectedResult = "CCC")]
     [TestCase(480, ExpectedResult = "CDLXXX")]
     [TestCase(500, ExpectedResult = "D")]
     [TestCase(730, ExpectedResult = "DCCXXX")]
@@ -31,14 +34,15 @@ public class Tests
     [TestCase(01000, ExpectedResult = "M")]
     [TestCase(1984, ExpectedResult = "MCMLXXXIV")]
     [TestCase(2678, ExpectedResult = "MMDCLXXVIII")]
+    [TestCase(3000, ExpectedResult = "MMM")]
     [TestCase(3900, ExpectedResult = "MMMCM")]
     [TestCase(3999, ExpectedResult = "MMMCMXCIX")]
-    public string ConvertToRoman_Integer_ReturnsRoman(int numberToConvertToRoman)
+    public string ConvertToRoman_Integer_ReturnsRoman(int numberToConvert)
     {
         // Arrange (See TestCase Attribute)
 
         // Act
-        var romanNumber = Converter.ConvertToRoman(numberToConvertToRoman);
+        var romanNumber = Converter.ConvertToRoman(numberToConvert);
 
         // Assert
         return romanNumber;
@@ -46,22 +50,22 @@ public class Tests
 
     [TestCase(4000)]
     [TestCase(99999)]
-    public void ConvertToRoman_GreaterThan3999_ThrowsException(int number)
+    public void ConvertToRoman_GreaterThan3999_ThrowsException(int numberToConvert)
     {
         // Arrange (See TestCase Attribute)
 
         // Act & Assert
-        Assert.Throws<ArgumentOutOfRangeException>(() => Converter.ConvertToRoman(number));
+        Assert.Throws<ArgumentOutOfRangeException>(() => Converter.ConvertToRoman(numberToConvert));
     }
 
     [TestCase(0)]
     [TestCase(000)]
-    public void ConvertToRoman_Zero_ReturnPassiertscheinA28(int numberToConvertToRoman)
+    public void ConvertToRoman_Zero_ReturnPassierscheinA38(int numberToConvert)
     {
         // Arrange (See TestCase Attribute)
 
         // Act
-        var romanNumber = Converter.ConvertToRoman(numberToConvertToRoman);
+        var romanNumber = Converter.ConvertToRoman(numberToConvert);
 
         // Assert
         Assert.AreEqual("PASSIERSCHEIN A-XXXVIII", romanNumber);
@@ -70,11 +74,11 @@ public class Tests
     [TestCase(-1)]
     [TestCase(-480)]
     [TestCase(-9999)]
-    public void ConvertToRoman_NegativeNumber_ThrowsException(int numberToConvertToRoman)
+    public void ConvertToRoman_NegativeNumber_ThrowsException(int numberToConvert)
     {
         // Arrange (See TestCase Attribute)
 
         // Act & Assert
-        Assert.Throws<ArgumentOutOfRangeException>(() => Converter.ConvertToRoman(numberToConvertToRoman));
+        Assert.Throws<ArgumentOutOfRangeException>(() => Converter.ConvertToRoman(numberToConvert));
     }
 }
