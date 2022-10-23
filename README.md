@@ -15,6 +15,7 @@ To get some sample data for testing, I used this source: https://www.math-salama
 ##### To Do:
 
 - Improve the implementation by using recursion
+- Support numbers greater than 3999
 - Add a method to convert from roman numerals to integer
 
 ##### Hints:
