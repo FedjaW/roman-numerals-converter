@@ -65,7 +65,7 @@ public class Tests
 
     [TestCase(0)]
     [TestCase(000)]
-    public void ConvertToRoman_Zero_ReturnPassierscheinA38(int numberToConvert)
+    public void ConvertToRoman_Zero_ReturnEasterEgg(int numberToConvert)
     {
         // Arrange (See TestCase Attribute)
 
