@@ -14,16 +14,16 @@ public class Converter
             return "PASSIERSCHEIN A-XXXVIII";
         }
 
-        Dictionary<int, string> m = new Dictionary<int, string>();
-        m.Add(1, "I");
-        m.Add(5, "V");
-        m.Add(10, "X");
-        m.Add(50, "L");
-        m.Add(100, "C");
-        m.Add(500, "D");
-        m.Add(1000, "M");
+        var dict = new Dictionary<int, string>();
+        dict.Add(1, "I");
+        dict.Add(5, "V");
+        dict.Add(10, "X");
+        dict.Add(50, "L");
+        dict.Add(100, "C");
+        dict.Add(500, "D");
+        dict.Add(1000, "M");
 
-        if (m.TryGetValue(numberToConvert, out string value))
+        if (dict.TryGetValue(numberToConvert, out string value))
         {
             return value;
         }
@@ -38,10 +38,7 @@ public class Converter
             int thousands = int.Parse(number[length - 4].ToString()) * 1000;
             if (thousands < 4000)
             {
-                for (int k = 0; k < thousands / 1000; k++)
-                {
-                    s.Append("M");
-                }
+                s.Append(RepeatChar('M', thousands / 1000));
             }
             else if (thousands >= 4000)
             {
@@ -54,10 +51,7 @@ public class Converter
             int hundreds = int.Parse(number[length - 3].ToString()) * 100;
             if (hundreds < 400)
             {
-                for (int k = 0; k < hundreds / 100; k++)
-                {
-                    s.Append("C");
-                }
+                s.Append(RepeatChar('C', hundreds / 100));
             }
             else if (hundreds == 400)
             {
@@ -70,10 +64,7 @@ public class Converter
             else
             {
                 s.Append("D");
-                for (int k = 0; k < (hundreds - 500) / 100; k++)
-                {
-                    s.Append("C");
-                }
+                s.Append(RepeatChar('C', (hundreds - 500) / 100));
             }
         }
 
@@ -82,10 +73,7 @@ public class Converter
             int tens = int.Parse(number[length - 2].ToString()) * 10;
             if (tens < 40)
             {
-                for (int k = 0; k < (tens / 10); k++)
-                {
-                    s.Append("X");
-                }
+                s.Append(RepeatChar('X', tens / 10));
             }
             else if (tens == 40)
             {
@@ -98,20 +86,14 @@ public class Converter
             else
             {
                 s.Append("L");
-                for (int k = 0; k < (tens - 50) / 10; k++)
-                {
-                    s.Append("X");
-                }
+                s.Append(RepeatChar('X', (tens - 50) / 10));
             }
         }
 
         int units = int.Parse(number[length - 1].ToString());
         if (units < 4)
         {
-            for (int k = 0; k < units; k++)
-            {
-                s.Append("I");
-            }
+            s.Append(RepeatChar('I', units));
         }
         else if (units == 4)
         {
@@ -124,10 +106,19 @@ public class Converter
         else
         {
             s.Append("V");
-            for (int k = 0; k < units - 5; k++)
-            {
-                s.Append("I");
-            }
+            s.Append(RepeatChar('I', units - 5));
+        }
+
+        return s.ToString();
+    }
+
+    private static string RepeatChar(char character, int repetitions)
+    {
+        var s = new StringBuilder();
+
+        for (int k = 0; k < repetitions; k++)
+        {
+            s.Append(character);
         }
 
         return s.ToString();
