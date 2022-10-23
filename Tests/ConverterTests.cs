@@ -153,7 +153,7 @@ public class Tests
         return romanNumber;
     }
 
-    //[Test]
+    [Test]
     public void ConvertToRomanRecursive_Integer_ReturnsEasterEgg()
     {
         // Arrange
@@ -176,8 +176,8 @@ public class Tests
         Assert.Throws<ArgumentOutOfRangeException>(() => Converter.ConvertToRomanRecursive(numberToConvert));
     }
 
-    //[TestCase(0)]
-    //[TestCase(000)]
+    [TestCase(0)]
+    [TestCase(000)]
     public void ConvertToRomanRecursive_Zero_ThrowsException(int numberToConvert)
     {
         // Arrange (See TestCase Attribute)
