@@ -11,6 +11,11 @@ public class Converter
 
         if (numberToConvert == 0)
         {
+            throw new ArgumentOutOfRangeException("Zero is not convertible");
+        }
+
+        if (numberToConvert == 38)
+        {
             return "PASSIERSCHEIN A-XXXVIII";
         }
 
@@ -77,7 +82,6 @@ public class Converter
             }
             else if (tens == 40)
             {
-                // 4 * 10 = 40
                 s.Append("XL");
             }
             else if (tens == 90)
@@ -113,10 +117,7 @@ public class Converter
         return s.ToString();
     }
 
-
-    private static StringBuilder output = new StringBuilder();
-
-    public static string ConvertRecursive(int numberToConvert)
+    public static string ConvertToRomanRecursive(int numberToConvert)
     {
         if (numberToConvert < 0)
         {
@@ -125,7 +126,12 @@ public class Converter
 
         if (numberToConvert == 0)
         {
-            return "PASSIERSCHEIN A-XXXVIII";
+            //throw new ArgumentOutOfRangeException("Zero is not convertible");
+        }
+
+        if (numberToConvert == 38)
+        {
+            //return "PASSIERSCHEIN A-XXXVIII";
         }
 
         if (numberToConvert >= 4000)
@@ -151,6 +157,7 @@ public class Converter
         // if (stringifiedNumber.Length == 3) placeValue = 100;
         // if (stringifiedNumber.Length == 4) placeValue = 1000;
 
+        var output = new StringBuilder();
         int number = frontNumber * placeValue;
         if (number < (4 * placeValue))
         {
@@ -168,16 +175,17 @@ public class Converter
         }
         else
         {
-            output.Append(dict[(4 + 1) * placeValue]);
+            output.Append(dict[(5) * placeValue]);
             output.Append(RepeatChar(dict[placeValue], (number - 5 * placeValue) / placeValue));
         }
 
         var rest = stringifiedNumber.Remove(0, 1);
 
+
         if (rest.Length > 0)
         {
             var restNumber = int.Parse(rest);
-            ConvertRecursive(restNumber);
+            return output.ToString() + ConvertToRomanRecursive(restNumber);
         }
 
         return output.ToString();
