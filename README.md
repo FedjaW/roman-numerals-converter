@@ -2,7 +2,7 @@
 
 A roman number converter that converts any integer between 1 and 3999 into a roman string.
 
-The converter returns roman numerals in `subtractive notation`. Learn more about the ancient Rome numeral system: https://de.wikipedia.org/wiki/R%C3%B6mische_Zahlschrift#Subtraktionsregel
+The converter returns roman numerals in `subtractive notation`. Learn more about the ancient Rome numeral system: https://en.wikipedia.org/wiki/Roman_numerals#Standard_form
 
 To get some sample data for testing, I used this source: https://www.math-salamanders.com/roman-numerals-list.html
 
