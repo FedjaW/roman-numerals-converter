@@ -1,4 +1,4 @@
-# roman-numerals-converter
+# Roman Numerals Converter
 
 A roman number converter that converts any integer between 1 and 3999 into a roman string.
 
@@ -12,12 +12,21 @@ To get some sample data for testing, I used this source: https://www.math-salama
 - Navigate to the _Sources_ folder and execute `dotnet run`. You will be prompted to enter an interger between 1 and 3999.
 - Navigate to the _Tests_ folder and execute `dotnet test` to run the test suite.
 
-##### Open Tasks:
+##### Open Tasks
 
 - [x] <del>Improve the implementation by using recursion
 - [ ] Support numbers greater than 3999
 - [ ] Add a method to convert from roman numerals to integer
 
-##### Hints:
+##### Hints
 
 - An Easter egg is hidden
+
+##### Contribute
+
+There are currently two different implementations of the same converter, a simple approach and a recursive approach.
+Any new implementation approach is welcome. This can serve as a code kata.
+
+##### Screenshot
+
+![converter](./Images/screenshot.png)

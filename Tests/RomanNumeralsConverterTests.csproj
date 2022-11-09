@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Sources\roman-numerals-converter.csproj" />
+    <ProjectReference Include="..\Sources\RomanNumeralsConverter.csproj" />
   </ItemGroup>
 
 </Project>
