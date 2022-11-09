@@ -6,27 +6,27 @@ The converter returns roman numerals in `subtractive notation`. Learn more about
 
 To get some sample data for testing, I used this source: https://www.math-salamanders.com/roman-numerals-list.html
 
-##### How to use the software:
+## How to use the software:
 
 - You need `.NET 6.0` to run the console application. (https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 - Navigate to the _Sources_ folder and execute `dotnet run`. You will be prompted to enter an interger between 1 and 3999.
 - Navigate to the _Tests_ folder and execute `dotnet test` to run the test suite.
 
-##### Open Tasks
+## Open Tasks
 
 - [x] <del>Improve the implementation by using recursion
 - [ ] Support numbers greater than 3999
 - [ ] Add a method to convert from roman numerals to integer
 
-##### Hints
+## Hints
 
 - An Easter egg is hidden
 
-##### Contribute
+## Contribute
 
 There are currently two different implementations of the same converter, a simple approach and a recursive approach.
 Any new implementation approach is welcome. This can serve as a code kata.
 
-##### Screenshot
+## Screenshot
 
 ![converter](./Images/screenshot.png)
