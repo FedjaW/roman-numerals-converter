@@ -24,7 +24,12 @@ To get some sample data for testing, I used this source: https://www.math-salama
 
 ## Contribute
 
-There are currently two different implementations of the same converter, a simple approach and a recursive approach.
+There are currently three different implementations of the same converter:
+
+1. a simple approach,
+2. a recursive approach
+3. and ChatGPTs approach.
+
 Any new implementation approach is welcome. This can serve as a code kata.
 
 ## Screenshot
